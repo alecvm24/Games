@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Guess the Secret Number Game</h1>
+    <p><b>Guess a number between 1 and 25 to win the pastry</b></p>
+    <form id="guessForm">
+        <input type="number" id="guessInput" min="1" max="25" required>
+        <input type="button" value="Play" onclick="checkGuess()">
+    </form>
+</body>
+</html>
