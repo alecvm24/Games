@@ -65,7 +65,8 @@ function startGame(){
     }
     //console.log(yourSum);
 
-    document.getElementById("hit").addEventListener("click", hit);   
+    document.getElementById("hit").addEventListener("click", hit);
+    document.getElementById("stay").addEventListener("click", stay);   
 }
 
 function hit(){
@@ -82,6 +83,34 @@ function hit(){
     if(reduceAce(yourSum, yourAceCount) > 21){
         canHit = false;
     }
+}
+
+function stay(){
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    yourSum = reduceAce (yourSum, yourAceCount);
+    
+    canHit = false;
+    document.getElementById("hidden").src = "Images/cards/" + hidden + ".png";
+
+    let message = "";
+    if (yourSum > 21){
+        message = "You lose !";
+    }
+    else if (dealerSum > 21){
+        message = "You win !";
+    }
+    else if (yourSum == dealerSum){
+    message = "It's a tie !";
+    }
+    else if (yourSum < dealerSum){
+        message = "You win !";
+    }
+    else if (yourSum > dealerSum){
+        message = "You lose !";
+    }
+    document.getElementById("dealer-sum").innerText = dealerSum;
+    document.getElementById("your-sum").innerText = yourSum;
+    document.getElementById("results").innerText = message;
 }
 
 function getValue(card){
